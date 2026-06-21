@@ -4,7 +4,7 @@
     "repo": "SylphxAI/app-template",
     "name": "Sylphx App Template",
     "lifecycle": "active",
-    "layer": "template",
+    "layer": "tooling",
     "summary": "Next.js template for creating Sylphx Platform applications with the Sylphx SDK pre-configured.",
     "goals": [
       "Provide a minimal production-shaped Next.js App Router template for new Sylphx Platform apps.",

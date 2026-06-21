@@ -5,7 +5,7 @@ SylphxAI/app-template is a Next.js template for creating Sylphx Platform applica
 ## Lifecycle
 
 - State: `active`
-- Layer: `template`
+- Layer: `tooling`
 - Machine manifest: [`.doctrine/project.json`](./.doctrine/project.json)
 
 ## Goals

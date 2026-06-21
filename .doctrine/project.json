@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "repo": "SylphxAI/app-template",
+    "name": "Sylphx App Template",
+    "lifecycle": "active",
+    "layer": "template",
+    "summary": "Next.js template for creating Sylphx Platform applications with the Sylphx SDK pre-configured.",
+    "goals": [
+      "Provide a minimal production-shaped Next.js App Router template for new Sylphx Platform apps.",
+      "Demonstrate the expected Sylphx SDK configuration and environment variable contract.",
+      "Keep generated app scaffolding separate from platform service implementation."
+    ],
+    "nonGoals": [
+      "Own the Sylphx Platform backend services or SDK implementation.",
+      "Own the product roadmap or runtime behavior of apps generated from the template.",
+      "Own enterprise engineering doctrine, standards, or project manifest schema."
+    ]
+  },
+  "boundaries": {
+    "owns": [
+      {
+        "name": "nextjs-template",
+        "description": "Template source files, README, sample Next.js routes, and local package metadata for creating Sylphx Platform apps."
+      },
+      {
+        "name": "template-sdk-contract-example",
+        "description": "The documented app-level environment variables and example Sylphx SDK usage that generated applications can adapt."
+      }
+    ],
+    "doesNotOwn": [
+      "The Sylphx SDK package implementation or platform backend services.",
+      "Generated applications, their product-specific business logic, or their production deployment decisions.",
+      "Enterprise doctrine and manifest schema owned by SylphxAI/doctrine."
+    ],
+    "publicSurfaces": [
+      {
+        "type": "documentation",
+        "name": "Template README",
+        "location": "README.md"
+      },
+      {
+        "type": "manifest",
+        "name": "Package scripts and dependencies",
+        "location": "package.json"
+      },
+      {
+        "type": "ui",
+        "name": "Next.js app routes",
+        "location": "app/"
+      },
+      {
+        "type": "config",
+        "name": "Next.js configuration",
+        "location": "next.config.ts"
+      },
+      {
+        "type": "config",
+        "name": "TypeScript configuration",
+        "location": "tsconfig.json"
+      }
+    ],
+    "allowedDependencies": [
+      {
+        "repo": "SylphxAI/doctrine",
+        "surface": "project manifest schema and engineering doctrine",
+        "direction": "peer-public"
+      }
+    ],
+    "forbiddenCouplings": [
+      "Do not add product-specific behavior from a generated app back into the template.",
+      "Do not implement platform backend services or SDK internals in this template repository.",
+      "Do not fork doctrine standards into this repository."
+    ]
+  },
+  "documentation": {
+    "adr": {
+      "path": "docs/adr/",
+      "status": "planned"
+    },
+    "specs": {
+      "path": "docs/specs/",
+      "status": "planned"
+    },
+    "catalog": {
+      "path": ".doctrine/project.json",
+      "status": "present"
+    },
+    "runbooks": {
+      "path": "docs/runbooks/",
+      "status": "planned"
+    },
+    "generatedReferences": {
+      "path": "README.md",
+      "status": "present"
+    }
+  },
+  "delivery": {
+    "ciModel": "none",
+    "requiredContexts": [],
+    "deployPath": "not-applicable: this repository is a template, not a deployed product runtime.",
+    "productionProof": "npm run build plus generated-app smoke test that verifies documented environment variables and Sylphx SDK imports.",
+    "recoveryClass": "source-revertable"
+  },
+  "adoption": {
+    "status": "baseline",
+    "gaps": [
+      {
+        "id": "ci-missing",
+        "description": "No GitHub Actions workflow or required admission context currently protects the template.",
+        "owner": "SylphxAI/app-template",
+        "target": "central ADR-29 required-context rollout or repo-local Next.js template CI gate"
+      },
+      {
+        "id": "generated-app-smoke-missing",
+        "description": "The README references create-sylphx-app, but this repository does not yet record generated-app smoke proof for the template contract.",
+        "owner": "SylphxAI/app-template",
+        "target": "template release or generator integration follow-up"
+      },
+      {
+        "id": "package-name-placeholder",
+        "description": "package.json is named my-sylphx-app, which is appropriate for a generated app but should be explicit in template release tooling.",
+        "owner": "SylphxAI/app-template",
+        "target": "template packaging contract review"
+      }
+    ]
+  }
+}

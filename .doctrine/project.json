@@ -5,6 +5,7 @@
     "name": "Sylphx App Template",
     "lifecycle": "active",
     "layer": "tooling",
+    "policyPool": "agent-tool",
     "summary": "Next.js template for creating Sylphx Platform applications with the Sylphx SDK pre-configured.",
     "goals": [
       "Provide a minimal production-shaped Next.js App Router template for new Sylphx Platform apps.",
@@ -97,6 +98,7 @@
   },
   "delivery": {
     "ciModel": "none",
+    "deployable": false,
     "requiredContexts": [],
     "deployPath": "not-applicable: this repository is a template, not a deployed product runtime.",
     "productionProof": "npm run build plus generated-app smoke test that verifies documented environment variables and Sylphx SDK imports.",
